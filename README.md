@@ -1,2 +1,0 @@
-# jacksonville-notary
-notary
