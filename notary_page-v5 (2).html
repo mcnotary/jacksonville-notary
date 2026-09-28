@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cepeda’s Mobile Notary & Apostille Services - Jacksonville, FL</title>
+    <style>
+        :root {
+            --primary: #1a73e8;
+            --primary-dark: #1557b0;
+            --text-main: #202124;
+            --text-muted: #5f6368;
+            --bg-light: #f8f9fa;
+            --border: #dadce0;
+            --accent: #e8f0fe;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+        }
+
+        body {
+            background-color: #ffffff;
+            line-height: 1.6;
+        }
+
+        header {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .cta-phone {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: background 0.2s;
+        }
+
+        .cta-phone:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .hero {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                margin: 20px auto;
+            }
+            .hero-img-container {
+                order: -1;
+            }
+        }
+
+        .hero-text h1 {
+            font-size: 36px;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            color: #111;
+        }
+
+        .hero-text h2 {
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        .hero-img-container {
+            text-align: center;
+        }
+
+        .hero-img {
+            max-width: 100%;
+            height: auto;
+            max-height: 450px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 1px solid var(--border);
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 25px;
+            background: white;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+
+        .card ul {
+            list-style: none;
+        }
+
+        .card ul li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .card ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .ron-banner {
+            background-color: var(--accent);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .ron-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        .ron-badge {
+            background: var(--primary);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .ron-content h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .fee-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .fee-table th, .fee-table td {
+            border: 1px solid var(--border);
+            padding: 12px;
+            text-align: left;
+        }
+
+        .fee-table th {
+            background-color: var(--bg-light);
+            font-weight: 600;
+        }
+
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .split-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        form {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(26,115,232,0.1);
+        }
+
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .checklist-box {
+            border: 1px solid #ffeeba;
+            background-color: #fff3cd;
+            border-radius: 8px;
+            padding: 25px;
+        }
+
+        .checklist-box h3 {
+            color: #856404;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .checklist-box ol {
+            padding-left: 20px;
+            font-size: 14px;
+        }
+
+        .checklist-box ol li {
+            margin-bottom: 10px;
+            color: #856404;
+        }
+
+        .checklist-box ol li strong {
+            color: #533f03;
+        }
+
+        /* FAQ Accordion Styling */
+        .faq-item {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background: var(--bg-light);
+            padding: 18px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            font-size: 15px;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 20px;
+            color: var(--primary);
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '−';
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out, padding 0.2s ease-out;
+            background: white;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 15px 20px;
+            max-height: 200px;
+            border-top: 1px solid var(--border);
+        }
+
+        footer {
+            background: var(--bg-light);
+            border-top: 1px solid var(--border);
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">Cepeda’s Mobile Notary</div>
+            <a href="tel:9043976147" class="cta-phone">📞 904-397-6147</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Professional Mobile Notary & Apostille Services</h1>
+            <h2>Serving Jacksonville, FL and All Surrounding Counties. Reliable, accurate legal document authentications delivered directly to your doorstep.</h2>
+            <a href="tel:9043976147" class="cta-phone" style="display: inline-block; padding: 14px 28px; font-size: 16px;">Call to Schedule: 904-397-6147</a>
+        </div>
+        <div class="hero-img-container">
+            <!-- Provided profile photo placeholder standard frame integration -->
+            <img src="image_lVcoFg.png" alt="Cepeda - Professional Mobile Notary" class="hero-img">
+        </div>
+    </section>
+
+    <!-- REMOTE ONLINE NOTARIZATION (RON) SYSTEM CAPABILITIES -->
+    <div class="container">
+        <div class="ron-banner">
+            <div class="ron-content">
+                <span class="ron-badge">Statewide Digital Service</span>
+                <h3>Remote Online Notarization (RON) Capabilities</h3>
+                <p style="color: var(--text-muted); font-size: 15px;">Can't meet in person? As an authorized Florida Online Notary, I perform fully legal, secure, and remote digital notarizations using safe audio-video technologies. Connect instantly from anywhere in the world to legalize your Florida compliance documents.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 class="section-title">Our Services</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Apostille Services</h3>
+                <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 12px;">Fast-tracked international document legalization certifying certificates for use under the Hague Convention standard.</p>
+                <ul>
+                    <li>Birth, Marriage & Death Certificates</li>
+                    <li>Corporate Power of Attorney documents</li>
+                    <li>Diplomas & Academic Transcripts</li>
+                    <li>FBI Background Clearances</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>General Notary Work</h3>
+                <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 12px;">Official legal acts executing Florida declarations, verifying identities, and administering lawful oaths.</p>
+                <ul>
+                    <li>Affidavits & Sworn Statements</li>
+                    <li>Bill of Sale & Vehicle Titles</li>
+                    <li>Parental Consent to Travel forms</li>
+                    <li>Copy Certifications</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Real Estate & Estate</h3>
+                <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 12px;">Expert certified loan signing actions and structured estate plan document executions.</p>
+                <ul>
+                    <li>Mortgage Refinance & Purchase Loans</li>
+                    <li>Wills, Trusts & Health Directives</li>
+                    <li>Durable Power of Attorney (POA)</li>
+                    <li>Quitclaim Deeds & Real Estate Closings</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <h2 class="section-title">Service Areas & Travel Fees</h2>
+        <p style="text-align: center; color: var(--text-muted); margin-bottom: 30px; font-size: 15px;">Centrally coordinated from Jacksonville, travel parameters scale systematically across the Northeast Florida region:</p>
+        <table class="fee-table">
+            <thead>
+                <tr>
+                    <th>Service Zone</th>
+                    <th>Counties Covered</th>
+                    <th>Key Locations Included</th>
+                    <th>Travel Flat Rate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Zone 1 (Core Base)</strong></td>
+                    <td>Duval County</td>
+                    <td>Jacksonville, Beaches, Downtown, Mandarin, Northside</td>
+                    <td>Base Travel Rate</td>
+                </tr>
+                <tr>
+                    <td><strong>Zone 2 (First-Ring)</strong></td>
+                    <td>St. Johns, Clay, Nassau, Baker</td>
+                    <td>Ponte Vedra Beach, St. Augustine, Orange Park, Fleming Island, Yulee, Macclenny</td>
+                    <td>Base + Zone 2 Increment</td>
+                </tr>
+                <tr>
+                    <td><strong>Zone 3 (Extended)</strong></td>
+                    <td>Putnam, Bradford</td>
+                    <td>Palatka, Starke, and deep rural regions</td>
+                    <td>Extended Travel Rate</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="font-size: 12px; color: var(--text-muted); margin-top: 10px; font-style: italic;">*Note: State-mandated notary stamp fees apply per signature block in addition to mobile travel conveniences.</p>
+    </div>
+
+    <!-- BOOKING & CLIENT PREPARATION MODULE -->
+    <div class="container">
+        <div class="split-layout">
+            <div>
+                <h2 class="section-title" style="text-align: left; padding-bottom: 15px;">Book an Appointment</h2>
+                <form id="bookingForm" onsubmit="event.preventDefault(); alert('Thank you! Cepeda's Notary will contact you shortly to confirm your booking.');">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" required placeholder="(904) 555-0199">
+                    </div>
+                    <div class="form-group">
+                        <label for="serviceType">Service Required</label>
+                        <select id="serviceType" onchange="toggleApostilleFields()" required>
+                            <option value="">-- Select Service Type --</option>
+                            <option value="general">General Notary Signature</option>
+                            <option value="apostille">Apostille Authentication</option>
+                            <option value="estate">Wills & Estate Planning</option>
+                            <option value="loan">Real Estate Closing / Loan Signing</option>
+                            <option value="ron">Remote Online Notarization (RON)</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Conditional Apostille Tracking Dropdowns -->
+                    <div id="apostilleFields" style="display: none; border-left: 3px solid var(--primary); padding-left: 15px; margin-bottom: 20px;">
+                        <div class="form-group">
+                            <label for="destCountry">Destination Country</label>
+                            <input type="text" id="destCountry" placeholder="e.g., Spain, United Kingdom, Brazil">
+                        </div>
+                        <div class="form-group">
+                            <label for="certType">Legalization Track</label>
+                            <select id="certType">
+                                <option value="hague">Hague Convention Certificate (Apostille Track)</option>
+                                <option value="consular">Non-Hague Country (Consular Legalization Track)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="countyZone">Your Location County</label>
+                        <select id="countyZone" required>
+                            <option value="duval">Duval County</option>
+                            <option value="stjohns">St. Johns County</option>
+                            <option value="clay">Clay County</option>
+                            <option value="nassau">Nassau County</option>
+                            <option value="baker">Baker County</option>
+                            <option value="extended">Other / Extended Zone Area</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Special Document Directions / Meeting Address</label>
+                        <textarea id="notes" rows="3" placeholder="Provide meeting address, number of documents, and special requirements..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Submit Booking Request</button>
+                </form>
+            </div>
+
+            <div>
+                <h2 class="section-title" style="text-align: left; padding-bottom: 15px;">Signing Requirements</h2>
+                <div class="checklist-box">
+                    <h3>Mandatory Client Prep Checklist:</h3>
+                    <ol>
+                        <li><strong>Valid Government Photo ID:</strong> Every signer must present an unexpired, government-issued photo identification item (Florida Driver’s License, US Passport, or military ID cards).</li>
+                        <li><strong>Unsigned Documents:</strong> Do not sign or fill out execution date blanks prior to meeting. All documents must be signed directly in the physical or digital presence of the notary public.</li>
+                        <li><strong>Complete Text:</strong> Documents must contain full, readable legal text. A notary public is legally prohibited from processing partial or incomplete signature pages.</li>
+                        <li><strong>Witnesses Requirements:</strong> Certain deeds and wills require independent witnesses. Ensure your required witnesses are available at the site, hold valid photo IDs, and are entirely unrelated to the underlying document transaction.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FREQUENTLY ASKED QUESTIONS (FAQ) ACCORDION SECTION -->
+    <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div style="max-width: 800px; margin: 0 auto;">
+            
+            <div class="faq-item">
+                <div class="faq-question">What is the difference between an Apostille and standard notarization?</div>
+                <div class="faq-answer">
+                    A standard notarization verifies identity for internal domestic paperwork. An Apostille is an extended, international legal certification verified by the Florida Department of State, rendering the verified document legal for international use among member nations of the Hague Convention.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can a notary prepare my legal forms or give legal advice?</div>
+                <div class="faq-answer">
+                    No. Florida Notaries are strictly forbidden by state statute from drafting legal text, advising on document choices, or interpreting legal rights. For document preparation guidance, please seek advice from a licensed attorney.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What are the identity requirements for standard Florida notarizations?</div>
+                <div class="faq-answer">
+                    Signers must present a current, unexpired ID showing a distinct photograph, matching signature, and descriptive serial identifier. Expired IDs cannot be accepted under Florida compliance regulations unless backed by official corporate extensions.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How does a Remote Online Notarization (RON) appointment work?</div>
+                <div class="faq-answer">
+                    During a RON session, signers complete secure identity verification checks online (including knowledge-based identity questions and biometric ID scans), then join an encrypted live video call to electronically sign the paperwork while the notary digital stamps the form.
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Cepeda’s Mobile Notary Services. Jacksonville, FL. All Rights Reserved.</p>
+        <p style="margin-top: 5px; font-size: 11px; opacity: 0.8;">Disclaimer: Services provided conform directly with Chapter 117 of the Florida Statutes. The notary public is not an attorney and does not practice law or accept fees for legal advice.</p>
+    </footer>
+
+    <script>
+        function toggleApostilleFields() {
+            var serviceType = document.getElementById('serviceType').value;
+            var apostilleFields = document.getElementById('apostilleFields');
+            if(serviceType === 'apostille') {
+                apostilleFields.style.display = 'block';
+            } else {
+                apostilleFields.style.display = 'none';
+            }
+        }
+
+        // Accordion functionality
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                const isActive = parent.classList.contains('active');
+                
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(child => {
+                    child.classList.remove('active');
+                    child.querySelector('.faq-answer').style.maxHeight = null;
+                });
+
+                // Toggle selected
+                if (!isActive) {
+                    parent.classList.add('active');
+                    const answer = parent.querySelector('.faq-answer');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
